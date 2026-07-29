@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Săn Sale & Chuyển Đổi Link Shopee</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+        }
+        h2 {
+            color: #ee4d2d;
+            margin-bottom: 10px;
+            font-size: 22px;
+        }
+        p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-sizing: border-box;
+            outline: none;
+            font-size: 14px;
+        }
+        input[type="text"]:focus {
+            border-color: #ee4d2d;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #ee4d2d;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background-color: #d73211;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>🛍️ Săn Sale Shopee</h2>
+        <p>Dán link sản phẩm Shopee vào ô dưới để áp mã ưu đãi và ủng hộ shop nhé!</p>
+        
+        <input type="text" id="shopeeLink" placeholder="Dán link Shopee vào đây...">
+        <button onclick="convertToAffiliate()">Chuyển đổi ngay</button>
+    </div>
+
+    <script>
+        function convertToAffiliate() {
+            var rawLink = document.getElementById("shopeeLink").value.trim();
+            
+            if (!rawLink || !rawLink.includes("shopee")) {
+                alert("Vui lòng dán đúng đường link sản phẩm Shopee hợp lệ!");
+                return;
+            }
+
+            // Thay chữ CUA_BAN thành mã affiliate của bạn ở đây:
+            var finalLink = rawLink.includes("?") ? rawLink + "&aff_id=CUA_BAN" : rawLink + "?aff_id=CUA_BAN";
+            
+            window.location.href = finalLink;
+        }
+    </script>
+
+</body>
+</html>
